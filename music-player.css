@@ -1,0 +1,197 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    min-height: 100%;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(to bottom, #202020, #050505);
+    color: white;
+}
+
+#music-player {
+    min-height: 100vh;
+    min-height: 100svh;
+    padding: 24px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#song-image {
+    width: min(300px, 100%);
+    height: auto;
+    aspect-ratio: 1;
+    border-radius: 16px;
+    object-fit: cover;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+}
+
+#song-name {
+    max-width: 100%;
+    margin: 24px 0 0;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    overflow-wrap: anywhere;
+}
+
+#song-artist {
+    margin: 6px 0 0;
+    font-size: 16px;
+    text-align: center;
+    color: #cfcfcf;
+}
+
+#song-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: min(300px, 100%);
+    height: 6px;
+    margin: 24px 0 0;
+    border: 1px solid red;
+    border-radius: 10px;
+    cursor: pointer;
+    background: #333;
+}
+
+#song-slider:disabled {
+    cursor: default;
+    opacity: 0.5;
+}
+
+#song-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: red;
+    cursor: pointer;
+}
+
+#song-slider::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: red;
+    border: none;
+    cursor: pointer;
+}
+
+#song-time {
+    width: min(300px, 100%);
+    margin-top: 8px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: #cfcfcf;
+}
+
+#music-buttons {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 24px;
+    max-width: 100%;
+}
+
+#music-buttons button {
+    position: relative;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 10px;
+    border: 0;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.1s ease, color 0.2s ease;
+}
+
+#music-buttons svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+#music-buttons .skip-icon {
+    width: 28px;
+    height: 28px;
+}
+
+#music-buttons .play-icon {
+    width: 48px;
+    height: 48px;
+}
+
+#play-symbol {
+    fill: currentColor;
+}
+
+#pause-symbol {
+    stroke-width: 5;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+#music-buttons button:hover {
+    color: #ffdddd;
+}
+
+#music-buttons button:active {
+    transform: scale(0.9);
+}
+
+:focus-visible {
+    outline: 3px solid #ffb3b3;
+    outline-offset: 5px;
+}
+
+#music-buttons .active-toggle {
+    color: #1db954;
+}
+
+.active-toggle::after {
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: currentColor;
+    left: 50%;
+    bottom: 2px;
+    transform: translateX(-50%);
+}
+
+#player-status {
+    max-width: 300px;
+    margin: 0;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #ffb3b3;
+}
+
+#player-status:not(:empty) {
+    margin-top: 16px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #music-buttons button {
+        transition: none;
+    }
+}
